@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML5 Game Development - Lesson 7 | Script Tutorials</title>
+        <link href="css/main.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript" src="js/voice.js"></script> 
+        <script type="text/javascript" src="js/recognize.js"></script> 
+    
+
+        <script src="js/jquery-1.5.2.min.js"></script>
+        <script src="js/james.js"></script>
+        <script src="js/script.js"></script>
+
+    </head>
+    <body>
+        <img id="person" class="person_animation" src="images/person.png"/>
+        <img class="frame" src="images/frame.png"/>
+        <div class="left">
+            <div class="memo">
+                <canvas id="score_canvas" width="270" height="300"></canvas> 
+            </div>        
+             <div class="ipod" id="startButton">
+				<div class="wave"></div>  
+			 </div>
+        </div>   
+        <div class="container">
+            <canvas id="scene" width="800" height="950" class="Pad"></canvas>
+        </div>
+        <div class="right">          
+            <div class="iphone"></div>
+            <div id="Iphone1" class="iphone1">
+                <canvas id="msg_canvas" width="270" height="500"></canvas> 
+            </div>
+            <audio src="media/backgroundMusic.mp3" id="mp3" preload="auto"></audio>
+        </div>
+        
+        <script>
+            msgCanvas = document.getElementById('msg_canvas');
+            msgCtx = msgCanvas.getContext('2d');
+            document.getElementById("mp3").play();
+        </script>
+
+    </body>
+
+</html>

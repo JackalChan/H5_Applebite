@@ -1,0 +1,88 @@
+<html>
+<head><meta charset="utf-8" /></head>
+<body>
+<script type="text/javascript" src="voice.js"></script>   
+
+
+<input id="startStopButton" type="button" value="辨識" onclick="StartVoiceRec()"/><BR/>
+
+
+<script>
+    function callback(data) {
+        console.log("From Callback :", data);
+
+		//var op = document.getElementById("op");
+		//var bar = document.getElementById("bar");
+		var speech = data;
+		//, ""
+		var actionLeft = ["國", "賓", "無", "露", "我", "左", "蘿", "羅", "卓", "郭"];
+		var actionRight = ["右", "有", "路", "幼", "ro", "友", "遊", "永", "y", "用", "6", "又", "佑", "誘", "郵"];
+		var actionShoot = ["射", "發"];
+		var actionLong = ["長", "變"];
+
+		action = "";
+
+		for (var key in actionLeft) {
+			if (speech.indexOf(actionLeft[key]) != -1) {
+			  action = "left";
+			  //barLeft -= 10;
+			  //bar.style.left = barLeft + "px";
+			}
+		}
+
+		if (action == "") {
+			for (var key in actionRight) {
+			  if (speech.indexOf(actionRight[key]) != -1) {
+			    action = "right";
+			    //barLeft += 10;
+			    //bar.style.left = barLeft + "px";
+			  }
+			}
+		}
+
+		if (action == "") {
+			for (var key in actionShoot) {
+			  if (speech.indexOf(actionShoot[key]) != -1) {
+			    action = "shoot";
+			    //bar.style.color = "";
+			  }
+			}
+		}
+
+		if (action == "") {
+			for (var key in actionLong) {
+			  if (speech.indexOf(actionLong[key]) != -1) {
+			    action = "long";
+			    //barWidth += 10;
+			    //bar.style.width = barWidth + "px";
+			  }
+			}
+		}
+		/*
+		if (action == "left") {
+			op.innerHTML += "[" + speech + "(left)] ";
+		}
+		else if (action == "right") {
+			op.innerHTML += "[" + speech + "(right)] ";
+		}
+		else if (action == "shoot") {
+			op.innerHTML += "[" + speech + "(shoot)] ";
+		}
+		else if (action == "long") {
+			op.innerHTML += "[" + speech + "(long)] ";
+		}
+		*/
+		console.log("action :", action);
+
+		return action;
+    }
+
+    function StartVoiceRec(){
+        
+        voiceRec.start(callback);
+    }
+
+</script>
+
+</body>
+</html>
